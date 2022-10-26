@@ -9,6 +9,13 @@ for item in warehouse1:
 
 from data import warehouse1, warehouse2
 
+name = input("What is your name?")
+
+print("Hello,", name,"!", "What would you like to do?", "1. List items by warehouse", "2. Search an item and place an order", "3. Quit", sep = "\n")
+choice = int(input("Type the number of the operation: "))
+if choice == 1:
+    print(warehouse1[:-1], warehouse2[:-1])
+
 # YOUR CODE STARTS HERE
 
 # Get the user name
