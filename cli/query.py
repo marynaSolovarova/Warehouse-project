@@ -8,13 +8,21 @@ for item in warehouse1:
 """
 
 from data import warehouse1, warehouse2
+import time
 
 name = input("What is your name?")
+item = "placeholder"
 
 print("Hello,", name,"!", "What would you like to do?", "1. List items by warehouse", "2. Search an item and place an order", "3. Quit", sep = "\n")
 choice = int(input("Type the number of the operation: "))
 if choice == 1:
     print(warehouse1[:-1], warehouse2[:-1])
+elif choice == 2:
+    item = input("Enter item name")
+    print("Searching for the item...")
+
+    if item in warehouse1:
+        print(item, "is in warehouse1")
 
 # YOUR CODE STARTS HERE
 
