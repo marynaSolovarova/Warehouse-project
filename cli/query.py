@@ -9,16 +9,26 @@ for item in warehouse1:
 
 from data import warehouse1, warehouse2
 from collections import Counter
+import mypy
+
+def thank_you(name: str) -> None:
+    print(f'Thank you for your visit, {name}')
 
 
-name = input("What is your name? ")
-item = "placeholder"
+def choosing_option_1(name: str, warehouse1: list, warehouse2: list) -> None:
+    print(f'Warehouse1:\n\n')
+    for i in warehouse1:
+        
+        print(f'- {i}')
+    print(f'\n')
+    print(f"Warehouse2:\n")
+    for i in warehouse2:
+       
+        print(f'- {i}')
+    print(f"\n")
+    thank_you(name)
 
-print("Hello, "+name+"!", "What would you like to do?", "1. List items by warehouse", "2. Search an item and place an order", "3. Quit", sep = "\n")
-choice = int(input("Type the number of the operation: "))
-if choice == 1:
-    print("Warehouse 1: ", warehouse1[:-1], "Warehouse2: ", warehouse2[:-1], sep = "\n")
-elif choice == 2:
+def choosing_option2(name: str, warehouse1: list, warehouse2: list) -> None:
     question = "y"
     while question == "y":
         item = input("Enter item name ")
@@ -50,10 +60,33 @@ elif choice == 2:
                 if max_choice == "y":
                     print(f'The order has been placed.\nYour order: {c} of {item}\nThank you for your purchase!')
         question = input("Would you like to search another item?y/n ")
-elif choice != 1 and choice != 2 and choice != 3:
-    print("The operation entered is not valid")
+        thank_you(name)
 
-print(f'Thank you for your visit, {name}')
+def wrong_choice(name):
+    print("The operation entered is not valid")
+    thank_you(name)
+
+
+
+
+
+
+name = input("What is your name? ")
+item = "placeholder"
+
+print("Hello, "+name+"!", "What would you like to do?", "1. List items by warehouse", "2. Search an item and place an order", "3. Quit", sep = "\n")
+choice = int(input("Type the number of the operation: "))
+if choice == 1:
+    choosing_option_1(name, warehouse1, warehouse2)
+    #print("Warehouse 1: ", warehouse1[:-1], "Warehouse2: ", warehouse2[:-1], sep = "\n")
+elif choice == 2:
+    choosing_option2(name, warehouse1, warehouse2)
+elif choice == 3:
+    thank_you(name)
+elif choice != 1 and choice != 2 and choice != 3:
+    wrong_choice(name)
+
+
         
 
 
